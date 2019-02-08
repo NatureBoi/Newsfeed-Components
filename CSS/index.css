@@ -38,7 +38,6 @@
   border-bottom: none;
   z-index: 2;
 }
-
 .menu ul li {
   list-style-type: none;
   font-size: 32px;
@@ -99,6 +98,50 @@ html, body {
   padding: 0;
   font-family: "Roboto";
   background-color: #fffef7;
+}
+
+.new-article {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+form {
+  background: rgba(156, 223, 32, 0.1);
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  padding: 1.6rem;
+  border-radius: 12px;
+  box-shadow: #333 2px 5px 12px;
+}
+form .article-title {
+  display: flex;
+  flex-direction: column;
+}
+form .article-title input {
+  height: 25px;
+}
+form .article-message {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0 0 0;
+}
+form .button {
+  display: flex;
+  justify-content: center;
+}
+form .button .btn {
+  background: dodgerblue;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+}
+form .button .btn:hover {
+  background: #51a9ff;
 }
 
 /*# sourceMappingURL=index.css.map */

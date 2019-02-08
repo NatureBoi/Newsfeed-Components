@@ -31,3 +31,51 @@ class Article {
 
 let articles = document.querySelectorAll(".article");
 articles.forEach(article => (article = new Article(article)));
+
+// Add new Article to List
+function createArticle(title, content) {
+  let new_article = document.createElement("div");
+  new_article.setAttribute("class", "article");
+
+  let article_title = document.createElement("h2");
+  article_title.textContent = title;
+
+  let article_date = document.createElement("p");
+  article_date.setAttribute("class", "date");
+  let mmddyy = { month: "short", year: "numeric", day: "numeric" };
+  article_date.textContent = new Date().toLocaleDateString("en-US", mmddyy);
+
+  let article_content = document.createElement("p");
+  article_content.textContent = content;
+
+  let btn = document.createElement("span");
+  btn.setAttribute("class", "expandButton");
+
+  new_article.appendChild(article_title);
+  new_article.appendChild(article_date);
+  new_article.appendChild(article_content);
+  new_article.appendChild(btn);
+
+  return new_article;
+}
+
+function addArticle(article) {
+  let parent_articles = document.querySelector(".articles");
+  parent_articles.prepend(article);
+}
+
+let submit_btn = document.getElementById("submit");
+
+submit_btn.addEventListener("click", e => {
+  e.preventDefault();
+
+  let title = document.getElementById("title").value;
+  let msg = document.getElementById("msg").value;
+
+  let n_art = createArticle(title, msg);
+  addArticle(n_art);
+  n_art = new Article(n_art);
+
+  document.getElementById("title").value = "";
+  document.getElementById("msg").value = "";
+});
